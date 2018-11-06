@@ -1,6 +1,7 @@
-#include <iostream>
+#include "ExecuteInterface.h"
 
 int main()
 {
-	std::cout << "hello!" << std::endl;
+	CExecuteInterface::ExecuteLatestInstance();
+	system("pause");
 }

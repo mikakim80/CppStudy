@@ -1,2 +1,4 @@
 *.sln
 *.user
+/x64/Debug
+/.vs/CppStudy/v15

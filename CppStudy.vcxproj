@@ -115,7 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ExecuteInterface.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="study1.cpp" />
+    <ClCompile Include="study2.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ExecuteInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
