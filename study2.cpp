@@ -1,10 +1,10 @@
 #include "ExecuteInterface.h"
 #include <iostream>
 
-DECLARE_INTERFACE(Study, 2);
+DECLARE_INTERFACE(Study, 02);
 
-void Study2::Execute()
+void Study02::Execute()
 {
-	std::cout << "Study2::Execute()" << std::endl;
+	std::cout << "Study02::Execute()" << std::endl;
 }
 

@@ -15,7 +15,7 @@ void CExecuteInterface::ExecuteLatestInstance()
 		iter->second->Execute();
 }
 
-void CExecuteInterface::InsertInstance(int index, const std::shared_ptr<CExecuteInterface>& executeInterface)
+void CExecuteInterface::InsertInstance(const std::string& index, const std::shared_ptr<CExecuteInterface>& executeInterface)
 {
-	g_instanceMap.insert(std::make_pair(index, executeInterface));
+	g_instanceMap.insert(std::make_pair(std::stoi(index), executeInterface));
 }
