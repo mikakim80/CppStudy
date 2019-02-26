@@ -8,6 +8,9 @@
     <Filter Include="스터디">
       <UniqueIdentifier>{d48272d3-c302-4932-b8b1-545038cecf39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="스터디\sample">
+      <UniqueIdentifier>{7522f791-e33d-40a8-a103-1df946c532d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -17,9 +20,12 @@
       <Filter>베이스</Filter>
     </ClCompile>
     <ClCompile Include="study1.cpp">
-      <Filter>스터디</Filter>
+      <Filter>스터디\sample</Filter>
     </ClCompile>
     <ClCompile Include="study2.cpp">
+      <Filter>스터디\sample</Filter>
+    </ClCompile>
+    <ClCompile Include="03_Chrono.cpp">
       <Filter>스터디</Filter>
     </ClCompile>
   </ItemGroup>

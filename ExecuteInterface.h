@@ -30,4 +30,5 @@ class prefix##index : public CExecuteInterface \
 public: \
 	void Execute() override; \
 }; \
-static std::shared_ptr<CExecuteInterface> instance = CExecuteInterface::MakeInstance<prefix##index>(#index);
+using ClassName = prefix##index; \
+static std::shared_ptr<CExecuteInterface> instance = CExecuteInterface::MakeInstance<ClassName>(#index);

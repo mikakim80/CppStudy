@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="03_Chrono.cpp" />
     <ClCompile Include="ExecuteInterface.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="study1.cpp" />
