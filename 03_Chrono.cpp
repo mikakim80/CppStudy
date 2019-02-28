@@ -1,4 +1,4 @@
-#include "ExecuteInterface.h"
+ï»¿#include "ExecuteInterface.h"
 #include <iostream>
 #include <chrono>
 
@@ -18,9 +18,9 @@ void PrintDivider(const std::string& title)
 	std::cout << "\n###################################################################################\n\n";
 }
 
-void ±âº»µ¿ÀÛÈ®ÀÎ()
+void ê¸°ë³¸ë™ì‘í™•ì¸()
 {
-	PrintDivider("chrono ±âº» µ¿ÀÛ È®ÀÎ");
+	PrintDivider("chrono ê¸°ë³¸ ë™ì‘ í™•ì¸");
 
 	std::chrono::seconds sec;
 	std::chrono::hours hours(1);
@@ -28,12 +28,12 @@ void ±âº»µ¿ÀÛÈ®ÀÎ()
 	sec = hours;
 
 	std::cout << "hours: " << hours.count() << ", sec: " << sec.count() << std::endl;
-	// error: ¾Ï¹¬ÀûÀÎ µ¥ÀÌÅÍÇü º¯È¯ÀÌ °¡´ÉÇÏ´Ù¸é ÇÑ ½Ã°£ ±â°£À» ´Ù¸¥ ´ÜÀ§ÀÇ ½Ã°£ ±â°£À¸·Î ¹Ù²Ü ¼ö ÀÖ´Ù. ÀÛÀº ´ÜÀ§¿¡¼­ Å« ´ÜÀ§·ÎÀÇ º¯È¯Àº Á¤º¸¸¦ ÀÒÀ» ¼ö ÀÖÀ¸¹Ç·Î º¯È¯ÇÒ ¼ö ¾ø´Ù.
-	// ÀÌ °æ¿ì duration_cast¸¦ »ç¿ëÇÏ¿© ¸í½ÃÀû º¯È¯ÀÌ °¡´ÉÇÏ´Ù.
+	// error: ì•”ë¬µì ì¸ ë°ì´í„°í˜• ë³€í™˜ì´ ê°€ëŠ¥í•˜ë‹¤ë©´ í•œ ì‹œê°„ ê¸°ê°„ì„ ë‹¤ë¥¸ ë‹¨ìœ„ì˜ ì‹œê°„ ê¸°ê°„ìœ¼ë¡œ ë°”ê¿€ ìˆ˜ ìˆë‹¤. ì‘ì€ ë‹¨ìœ„ì—ì„œ í° ë‹¨ìœ„ë¡œì˜ ë³€í™˜ì€ ì •ë³´ë¥¼ ìƒì„ ìˆ˜ ìˆìœ¼ë¯€ë¡œ ë³€í™˜í•  ìˆ˜ ì—†ë‹¤.
+	// ì´ ê²½ìš° duration_castë¥¼ ì‚¬ìš©í•˜ì—¬ ëª…ì‹œì  ë³€í™˜ì´ ê°€ëŠ¥í•˜ë‹¤.
 	// hours = sec;
 
-	sec = sec * 2 + sec / 2; // 2½Ã°£ 30ºĞ
-	hours = std::chrono::duration_cast<std::chrono::hours>(sec);	// ÇÏÁö¸¸ °ª ¼Õ½ÇÀÌ ¹ß»ıÇÏ¿© 2½Ã°£.
+	sec = sec * 2 + sec / 2; // 2ì‹œê°„ 30ë¶„
+	hours = std::chrono::duration_cast<std::chrono::hours>(sec);	// í•˜ì§€ë§Œ ê°’ ì†ì‹¤ì´ ë°œìƒí•˜ì—¬ 2ì‹œê°„.
 
 	std::cout << sec << std::endl;
 	std::cout << hours << std::endl;
@@ -46,11 +46,11 @@ void printClockData()
 	using namespace std;
 	cout << "- precision: ";
 	using P = typename C::period;
-	// ¸¸¾à ½Ã°£ÀÌ 1 ¹Ğ¸®ÃÊº¸´Ù ÀÛ°Å³ª °°À¸¸é
+	// ë§Œì•½ ì‹œê°„ì´ 1 ë°€ë¦¬ì´ˆë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ìœ¼ë©´
 	if (ratio_less_equal<P, milli>::value)
 	{
 		using TT = typename ratio_multiply<P, kilo>::type;
-		// ¹Ğ¸®ÃÊ·Î ¹Ù²ã Ãâ·ÂÇÑ´Ù.
+		// ë°€ë¦¬ì´ˆë¡œ ë°”ê¿” ì¶œë ¥í•œë‹¤.
 		cout << fixed << double(TT::num) / TT::den << " milliseconds" << endl;
 	}
 	else
@@ -61,11 +61,11 @@ void printClockData()
 	cout << "- is_steady: " << boolalpha << C::is_steady << endl;
 }
 
-void Å¬·°Å×½ºÆ®()
+void í´ëŸ­í…ŒìŠ¤íŠ¸()
 {
-	PrintDivider("Å¬·°Å×½ºÆ®");
+	PrintDivider("í´ëŸ­í…ŒìŠ¤íŠ¸");
 
-	// ´Ù¾çÇÑ Å¬·°¿¡ ´ëÇÑ ¼Ó¼º Ãâ·Â
+	// ë‹¤ì–‘í•œ í´ëŸ­ì— ëŒ€í•œ ì†ì„± ì¶œë ¥
 	std::cout << "system_clock: " << std::endl;
 	printClockData<std::chrono::system_clock>();
 	std::cout << std::endl << "high_resolution_clock: " << std::endl;
@@ -73,7 +73,7 @@ void Å¬·°Å×½ºÆ®()
 	std::cout << std::endl << "steady_clock: " << std::endl;
 	printClockData<std::chrono::steady_clock>();
 
-	// ½Ã°£ ÃøÁ¤ Å×½ºÆ®
+	// ì‹œê°„ ì¸¡ì • í…ŒìŠ¤íŠ¸
 	auto start = std::chrono::system_clock::now();
 	system("pause");
 	auto diff = std::chrono::system_clock::now() - start;
@@ -94,6 +94,6 @@ void Chrono03::Execute()
 	//using minutes = duration<int, ratio<60>>;
 	//using hours = duration<int, ratio<3600>>;
 
-	±âº»µ¿ÀÛÈ®ÀÎ();
-	Å¬·°Å×½ºÆ®();
+	ê¸°ë³¸ë™ì‘í™•ì¸();
+	í´ëŸ­í…ŒìŠ¤íŠ¸();
 }
