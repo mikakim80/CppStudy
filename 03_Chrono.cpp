@@ -1,6 +1,8 @@
 ﻿#include "ExecuteInterface.h"
 #include <iostream>
 #include <chrono>
+#include <ctime>
+#include <thread>
 
 DECLARE_INTERFACE(Chrono, 03);
 
@@ -75,11 +77,44 @@ void 클럭테스트()
 
 	// 시간 측정 테스트
 	auto start = std::chrono::system_clock::now();
-	system("pause");
+	std::cout << "잠시 멈춤." << std::endl;
+	srand((unsigned)std::chrono::duration_cast<std::chrono::milliseconds>(start.time_since_epoch()).count());
+	std::this_thread::sleep_for(std::chrono::milliseconds(rand()%2500+1000));
 	auto diff = std::chrono::system_clock::now() - start;
 	auto millisec = std::chrono::duration_cast<std::chrono::milliseconds>(diff);
 	auto sec = std::chrono::duration_cast<std::chrono::seconds>(diff);
 	std::cout << "millisec: " << millisec.count() << ", sec: " << sec.count() << std::endl;
+}
+
+std::string asString(const std::chrono::system_clock::time_point& tp)
+{
+	std::time_t t = std::chrono::system_clock::to_time_t(tp);
+	std::cout << "t: " << t << std::endl;
+	char buffer[4096];
+	ctime_s(buffer, 4096, &t);
+ 	std::string ts(buffer);
+	return ts;
+}
+
+void 시간지점변환()
+{
+	PrintDivider("시간지점변환");
+	
+	// 이 시스템 클럭의 기초 출력
+	std::cout << "epoch: " << asString(std::chrono::system_clock::time_point()) << std::endl;
+
+	// 현재 시간 출력
+	std::cout << "now: " << asString(std::chrono::system_clock::now()) << std::endl;
+
+	// 이 시스템 클럭의 최소 시간 출력
+	// 제대로 변환이 되지 않는다. 왤까? 
+	// time_t(time_point::min()) == -922337203685 너무 큰 값이어서 변환이 되지 않는 것으로 추정.
+	std::cout << "min: " << asString(std::chrono::system_clock::time_point::min()) << std::endl;
+
+	// 이 시스템 클럭의 최대 시간 출력
+	// 제대로 변환이 되지 않는다. 왤까?
+	// time_t(time_point::max()) == -922337203685
+	std::cout << "max: " << asString(std::chrono::system_clock::time_point::max()) << std::endl;
 }
 
 void Chrono03::Execute()
@@ -96,4 +131,5 @@ void Chrono03::Execute()
 
 	기본동작확인();
 	클럭테스트();
+	시간지점변환();
 }
