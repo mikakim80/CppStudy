@@ -28,6 +28,9 @@
     <ClCompile Include="03_Chrono.cpp">
       <Filter>스터디</Filter>
     </ClCompile>
+    <ClCompile Include="04_stl_intro.cpp">
+      <Filter>스터디</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExecuteInterface.h">

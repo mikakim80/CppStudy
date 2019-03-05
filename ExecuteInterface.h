@@ -19,10 +19,16 @@ public:
 	}
 
 	static void ExecuteLatestInstance();
+	static void Execute(int index);
 
 private:
 	static void InsertInstance(const std::string& index, const std::shared_ptr<CExecuteInterface>& executeInterface);
 };
+
+namespace NUtil
+{
+	void PrintDivider(const std::string& title);
+}
 
 #define DECLARE_INTERFACE(prefix, index) \
 class prefix##index : public CExecuteInterface \

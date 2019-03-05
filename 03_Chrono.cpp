@@ -13,16 +13,9 @@ std::ostream& operator<<(std::ostream& s, const std::chrono::duration<V,R>& d)
 	return s;
 }
 
-void PrintDivider(const std::string& title)
-{
-	std::cout << "\n###################################################################################\n";
-	std::cout << title;
-	std::cout << "\n###################################################################################\n\n";
-}
-
 void 기본동작확인()
 {
-	PrintDivider("chrono 기본 동작 확인");
+	NUtil::PrintDivider("chrono 기본 동작 확인");
 
 	std::chrono::seconds sec;
 	std::chrono::hours hours(1);
@@ -65,7 +58,7 @@ void printClockData()
 
 void 클럭테스트()
 {
-	PrintDivider("클럭테스트");
+	NUtil::PrintDivider("클럭테스트");
 
 	// 다양한 클럭에 대한 속성 출력
 	std::cout << "system_clock: " << std::endl;
@@ -98,7 +91,7 @@ std::string asString(const std::chrono::system_clock::time_point& tp)
 
 void 시간지점변환()
 {
-	PrintDivider("시간지점변환");
+	NUtil::PrintDivider("시간지점변환");
 	
 	// 이 시스템 클럭의 기초 출력
 	std::cout << "epoch: " << asString(std::chrono::system_clock::time_point()) << std::endl;
@@ -117,7 +110,7 @@ void 시간지점변환()
 	std::cout << "max: " << asString(std::chrono::system_clock::time_point::max()) << std::endl;
 }
 
-void Chrono03::Execute()
+void ClassName::Execute()
 {
 	std::cout << "Chrono03::Execute()" << std::endl;
 
