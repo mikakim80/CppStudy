@@ -28,6 +28,14 @@ private:
 namespace NUtil
 {
 	void PrintDivider(const std::string& title);
+
+	template <class T>
+	void PrintElements(const T& collection, const std::string& optionString = "")
+	{
+		std::cout << optionString << std::endl;
+		std::copy(collection.begin(), collection.end(), std::ostream_iterator<T::value_type>(std::cout, " "));
+		std::cout << std::endl;
+	}
 }
 
 #define DECLARE_INTERFACE(prefix, index) \
