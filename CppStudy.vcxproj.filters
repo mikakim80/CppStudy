@@ -31,6 +31,9 @@
     <ClCompile Include="04_stl_intro.cpp">
       <Filter>스터디</Filter>
     </ClCompile>
+    <ClCompile Include="05_container.cpp">
+      <Filter>스터디</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExecuteInterface.h">

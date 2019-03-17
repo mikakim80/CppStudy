@@ -22,7 +22,6 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{17FBB36F-1427-4743-B890-9D2F7FA18E32}</ProjectGuid>
     <RootNamespace>CppStudy</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -117,6 +116,7 @@
   <ItemGroup>
     <ClCompile Include="03_Chrono.cpp" />
     <ClCompile Include="04_stl_intro.cpp" />
+    <ClCompile Include="05_container.cpp" />
     <ClCompile Include="ExecuteInterface.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="study1.cpp" />
