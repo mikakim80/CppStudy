@@ -3,7 +3,10 @@
 #include <array>
 #include <string>
 #include <vector>
+#include <list>
 #include <deque>
+#include <map>
+#include <unordered_map>
 
 DECLARE_INTERFACE(Container, 05);
 
@@ -61,12 +64,72 @@ void 데크()
 {
 	NUtil::PrintDivider("데크");
 
-
 	std::vector<int> v;
 	std::deque<int> d;
 
 	// 내부 구조상 데크가 벡터 보다 더 큰 max_size()를 갖을 수도 있지만, 현재 시스템에서는 동일하다.
 	std::cout << "max_size(): vector: " << v.max_size() << ", deque: " << d.max_size() << std::endl;
+}
+
+void 맵()
+{
+	NUtil::PrintDivider("맵");
+
+	std::map<int, int> m = { { 0, 1 }, { 2, 3 } };
+	const decltype(m)& rm = m;
+	std::cout << m[0] << std::endl;
+	// const map에서는 첨자 연산자를 사용할 수 없다.
+	//std::cout << rm[0] << std::endl;
+}
+
+void 비정렬()
+{
+	NUtil::PrintDivider("비정렬");
+
+	std::unordered_map<int, int> um;
+
+	um.rehash(100);		// 100 / max_load_factor() 개수만큼 버킷을 준비함. (구버전 인터페이스)
+	um.reserve(100);	// 100 만큼 버킷을 준비함.
+
+	std::cout << "bucket: " << um.bucket_count() << ", max_bucket: " << um.max_bucket_count() << std::endl;
+	std::cout << "load_factor: " << um.load_factor() << ", max_load_factor: " << um.max_load_factor() << std::endl;
+
+	for (int i = 0; i < 1000; ++i)
+	{
+		um.insert(std::make_pair(i, i));
+	}
+
+	std::cout << "bucket: " << um.bucket_count() << ", max_bucket: " << um.max_bucket_count() << std::endl;
+	std::cout << "load_factor: " << um.load_factor() << ", max_load_factor: " << um.max_load_factor() << std::endl;
+
+	auto index = um.bucket(777);
+	std::cout << "bucket begin: ";
+	for (auto elem = um.begin(index); elem != um.end(index); ++elem)
+	{
+		std:: cout << elem->second << " ";
+	}
+	std::cout << std::endl;
+
+	std::cout << "size: " << um.size() << ", bucketCount: " << um.bucket_count() << std::endl;
+}
+
+template<class _Ty, size_t _Size>
+	//constexpr // 함수 반환값에서 사용할 경우 inline을 암시한다.
+	// https://beautyrain.tistory.com/30
+	// 배열의 참조 파라미터 형식: func(int (&arr)[10]) 형태이므로 템플릿을 다음과 같이 쓸 수 있다.
+		_Ty *local_end(_Ty (&_Array)[_Size]) noexcept
+{	// get end of array
+	return (_Array + _Size);
+}
+
+void C형식배열()
+{
+	NUtil::PrintDivider("C형식배열");
+
+	int arr[] = { 1, 2, 3, 4, 5, 6, 7 };
+	auto endIter = local_end(arr);
+	std::vector<int> v(std::begin(arr), std::end(arr));
+	NUtil::PrintElements(v);
 }
 
 void ClassName::Execute()
@@ -75,6 +138,9 @@ void ClassName::Execute()
 	배열();
 	백터();
 	데크();
+	맵();
+	비정렬();
+	C형식배열();
 }
 
 
