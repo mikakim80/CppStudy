@@ -7,6 +7,7 @@
 #include <deque>
 #include <map>
 #include <unordered_map>
+#include <functional>
 
 DECLARE_INTERFACE(Container, 05);
 
@@ -132,6 +133,14 @@ void C형식배열()
 	NUtil::PrintElements(v);
 }
 
+void 참조자래퍼()
+{
+	NUtil::PrintDivider("참조자래퍼");
+
+	CArrTest test;
+	std::reference_wrapper<CArrTest> rapper = test;
+}
+
 void ClassName::Execute()
 {
 	NUtil::PrintDivider("Container05::Execute()");
@@ -141,6 +150,7 @@ void ClassName::Execute()
 	맵();
 	비정렬();
 	C형식배열();
+	참조자래퍼();
 }
 
 
