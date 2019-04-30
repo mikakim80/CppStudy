@@ -2,6 +2,7 @@
 #include <type_traits>
 #include <memory>
 #include <string>
+#include <iterator>
 
 class CExecuteInterface
 {

@@ -117,6 +117,7 @@
     <ClCompile Include="03_Chrono.cpp" />
     <ClCompile Include="04_stl_intro.cpp" />
     <ClCompile Include="05_container.cpp" />
+    <ClCompile Include="06_iterator.cpp" />
     <ClCompile Include="ExecuteInterface.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="study1.cpp" />

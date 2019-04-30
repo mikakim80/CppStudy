@@ -34,6 +34,9 @@
     <ClCompile Include="05_container.cpp">
       <Filter>스터디</Filter>
     </ClCompile>
+    <ClCompile Include="06_iterator.cpp">
+      <Filter>스터디</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExecuteInterface.h">
